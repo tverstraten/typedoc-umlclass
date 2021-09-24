@@ -37,6 +37,8 @@ type PluginOptionsType = {
     hideProgressBar?: boolean;
     createPlantUmlFiles?: boolean;
     verboseOutput?: boolean;
+    coverage?: "all" | "hierarchy";
+    excludedFiles?: string[];
 };
 
 /** Plugin options type without nullables. */
@@ -92,7 +94,9 @@ export class PluginOptions {
         generatorProcessCount: os.cpus().length,
         hideProgressBar: false,
         createPlantUmlFiles: false,
-        verboseOutput: false,
+        verboseOutput: true,
+        coverage: "all",
+        excludedFiles: []
     };
 
     /**
@@ -391,5 +395,13 @@ export class PluginOptions {
      */
     public get createVerboseOutput(): RequiredPluginOptionsType["verboseOutput"] {
         return this.userValues?.verboseOutput ?? this.defaultValues.verboseOutput;
+    }
+
+    public get coverage(): RequiredPluginOptionsType["coverage"] {
+        return this.userValues?.coverage ?? this.defaultValues.coverage;
+    }
+
+    public get excludedFiles(): RequiredPluginOptionsType["excludedFiles"] {
+        return this.userValues?.excludedFiles ?? this.defaultValues.excludedFiles;
     }
 }

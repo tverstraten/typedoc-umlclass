@@ -239,9 +239,13 @@ export class Plugin {
     private shouldProcessReflection(reflection: unknown): reflection is DeclarationReflection {
         if (
             reflection instanceof DeclarationReflection &&
-            (reflection.kind === ReflectionKind.Class || reflection.kind === ReflectionKind.Interface) &&
-            reflectionIsPartOfClassHierarchy(reflection)
+            (reflection.kind === ReflectionKind.Class || reflection.kind === ReflectionKind.Interface)
         ) {
+            if(this.options.coverage === "hierarchy") {
+                if(reflectionIsPartOfClassHierarchy(reflection)) {
+                    return true;
+                }
+            }
             return true;
         }
 
