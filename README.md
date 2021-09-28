@@ -1,4 +1,4 @@
-# typedoc-umlclass
+# typedoc-umlclass-mod
 
 **Plugin for TypeDoc that generates UML class diagrams**
 
@@ -13,7 +13,7 @@ this plugin is going to create a UML class diagram for every class and interface
 
 Example:
 
-![Example default style](https://cwano12.github.io/typedoc-umlclass-mod/docs/human-default-layout.png)
+![Example default style](./docs/human-default-layout.png)
 
 ## Installation
 
