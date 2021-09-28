@@ -4,8 +4,8 @@
 
 ## Usage
 
-This is a fork from typedoc-classuml.  This fork was cretaed to add options to generate diagrams for all 
-classes and interfaces regardless of whether or not they are part of a hierarchy.  Also, there is an otpion
+This is a fork from typedoc-classuml.  This fork was created to add options to generate diagrams for all 
+classes and interfaces regardless of whether or not they are part of a hierarchy.  Also, there is an option
 to exclude any class or interface from class diagram generation.
 
 TypeDoc automatically detects plugins installed via npm. After installation TypeDoc can be used normally and
