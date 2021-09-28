@@ -8,6 +8,7 @@ import {
     DeclarationReflection,
     PageEvent,
     ProjectReflection,
+    Reflection,
     ReflectionKind,
     RendererEvent,
 } from "typedoc";
@@ -237,13 +238,17 @@ export class Plugin {
      */
     // eslint-disable-next-line class-methods-use-this
     private shouldProcessReflection(reflection: unknown): reflection is DeclarationReflection {
+        if (this.options.excludedClasses.includes((reflection as Reflection).name)) {
+            return false;
+        }
+
         if (
             reflection instanceof DeclarationReflection &&
             (reflection.kind === ReflectionKind.Class || reflection.kind === ReflectionKind.Interface)
         ) {
-            if(this.options.coverage === "hierarchy") {
-                if(reflectionIsPartOfClassHierarchy(reflection)) {
-                    return true;
+            if (this.options.coverage === "hierarchy") {
+                if (!reflectionIsPartOfClassHierarchy(reflection)) {
+                    return false;
                 }
             }
             return true;

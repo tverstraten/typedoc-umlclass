@@ -1,24 +1,26 @@
-[![NPM Version](https://badge.fury.io/js/typedoc-umlclass.svg)](https://badge.fury.io/js/typedoc-umlclass) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=67UU75EUH4S8A)
-
 # typedoc-umlclass
 
 **Plugin for TypeDoc that generates UML class diagrams**
 
 ## Usage
 
+This is a fork from typedoc-classuml.  This fork was cretaed to add options to generate diagrams for all 
+classes and interfaces regardless of whether or not they are part of a hierarchy.  Also, there is an otpion
+to exclude any class or interface from class diagram generation.
+
 TypeDoc automatically detects plugins installed via npm. After installation TypeDoc can be used normally and
 this plugin is going to create a UML class diagram for every class and interface within your project.
 
 Example:
 
-![Example default style](https://krisztianb.github.io/typedoc-umlclass/docs/human-default-layout.png)
+![Example default style](https://cwano12.github.io/typedoc-umlclass-mod/docs/human-default-layout.png)
 
 ## Installation
 
-The plugin can then be installed using [npm](https://www.npmjs.com/package/typedoc-umlclass):
+The plugin can then be installed using [npm](https://www.npmjs.com/package/typedoc-umlclass-mod):
 
 ```sh
-$ npm install --save-dev typedoc-umlclass
+$ npm install --save-dev typedoc-umlclass-mod
 ```
 
 ### Requirements
@@ -55,6 +57,7 @@ For example:
 | **location** `<local\|remote\|embed>` | Specifies the location of the generated images. If `local` then local image files are created in the assets directory of the generated documentation. If `remote` then the image tag uses an encoded link to a PlantUML web server that you can specify using the `remoteBaseUrl` option. If `embed` then the image is directly embedded into the HTML as a base64 encoded string. | `local` |
 | **remoteBaseUrl** `<string>` | Specifies the base URL that is used when generating remote image URLs. An example image URL is `http://www.plantuml.com/plantuml/svg/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000` from which `http://www.plantuml.com` is the base URL. You can use this option if you are running your own [PlantUML PicoWeb Server](https://plantuml.com/picoweb). | `http://www.plantuml.com` |
 | **format** `<png\|svg>` | Specifies the format the generated images should have. You can choose between `png` and `svg`. | `svg` |
+| **coverage** `<all\|hierarchy>` | This options allows diagrams to be generated even for classes/interfaces that are not part of hierarchy if `all` is set. The default behavior is maintained with the `hierarchy` option. | `hierarchy` |
 
 ### HTML output
 
@@ -98,28 +101,7 @@ For example:
 **hideProgressBar** `<true\|false>` | Since generating many diagrams can take several minutes the plugin displays a progress bar when the diagrams are created as local files or embedded into the HTML. No progress bar is displayed when generating remote URLs. If other plugins also output information to the console then the progress bar can disturb that output. If this is the case you can disable the progress bar of this plugin using the value `true`. | `false` |
 **createPlantUmlFiles** `<true\|false>` | If this option is set to `true` the plugin creates a text file for every class or interface for which a class diagram is generated. The file contains the PlantUML code that was used to create the diagram. The files are stored in the assets directory of the generated documentation. | `false` |
 **verboseOutput** `<true\|false>` | If this option is set to `true` the plugin outputs messages to the console during its work. Use this option to debug possible plugin issues. | `false` |
-
-## Bugs
-
-Please report bugs [here](https://github.com/krisztianb/typedoc-umlclass/issues). Thanks for your contribution!
-
-## Credits
-
-I would like to thank the following people that influenced this project:
-
--   [Meir Gottlieb](https://github.com/meirgottlieb) for his
-    [typedoc-plantuml](https://github.com/artifacthealth/typedoc-plantuml/) plugin of which this plugin first was a
-    fork of.
--   [Michael K](https://github.com/0815fox) for his (unfinished) extension/fork to that plugin which gave me some
-    insights into TypeDoc renderer events.
--   [Gerrit Birkeland](https://github.com/Gerrit0) for his help on questions about TypeDoc.
--   [Youssef Boujraf](https://github.com/yboujraf) for his impulse to create a separate plugin and help with testing it.
-
-## Donate
-
-If you find this piece of software helpful, please consider a donation. Any amount is greatly appreciated.
-
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=67UU75EUH4S8A)
+**excludedClasses** `<array>` | Indicates the classes/interfaces to exclude from class diagram generation. | `empty list` |
 
 ## License
 

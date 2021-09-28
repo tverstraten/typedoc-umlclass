@@ -38,7 +38,7 @@ type PluginOptionsType = {
     createPlantUmlFiles?: boolean;
     verboseOutput?: boolean;
     coverage?: "all" | "hierarchy";
-    excludedFiles?: string[];
+    excludedClasses: string[];
 };
 
 /** Plugin options type without nullables. */
@@ -94,9 +94,9 @@ export class PluginOptions {
         generatorProcessCount: os.cpus().length,
         hideProgressBar: false,
         createPlantUmlFiles: false,
-        verboseOutput: true,
-        coverage: "all",
-        excludedFiles: []
+        verboseOutput: false,
+        coverage: "hierarchy",
+        excludedClasses: []
     };
 
     /**
@@ -401,7 +401,7 @@ export class PluginOptions {
         return this.userValues?.coverage ?? this.defaultValues.coverage;
     }
 
-    public get excludedFiles(): RequiredPluginOptionsType["excludedFiles"] {
-        return this.userValues?.excludedFiles ?? this.defaultValues.excludedFiles;
+    public get excludedClasses(): RequiredPluginOptionsType["excludedClasses"] {
+        return this.userValues?.excludedClasses ?? this.defaultValues.excludedClasses;
     }
 }

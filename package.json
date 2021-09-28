@@ -1,6 +1,6 @@
 {
     "name": "typedoc-umlclass-mod",
-    "version": "0.6.0",
+    "version": "0.1.0",
     "description": "Plugin for TypeDoc that generates UML class diagrams",
     "author": {
         "name": "Christopher Wano",
@@ -40,11 +40,6 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/cwano12/typedoc-umlclass.git"
-    },
-    "husky": {
-        "hooks": {
-            "pre-push": "npm run format && npm run lint"
-        }
     },
     "main": "dist/index.js",
     "files": [
