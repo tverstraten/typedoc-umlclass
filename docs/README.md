@@ -1,3 +1,5 @@
+@tverstraten/typedoc-umlclass-mod / [Exports](modules.md)
+
 # typedoc-umlclass-mod-markdown
 
 **Plugin for TypeDoc Markdown that generates UML class diagrams**

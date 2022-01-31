@@ -414,7 +414,7 @@ export class Plugin {
             this.options.sectionTitle,
             imageUrl,
             reflection.name,
-            legend && !legend.isEmpty ? legend.getHtml(this.options.visibilityStyle) : "",
+            legend && !legend.isEmpty ? legend.getMarkdown(this.options.visibilityStyle) : "",
         );
 
         if (this.options.position === "above") {
@@ -431,22 +431,19 @@ export class Plugin {
      * Appends style data to the main CSS file.
      * @param event The event emitted by the renderer class.
      */
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     public onRendererEnd(event: RendererEvent): void {
         if (this.isActive && this.hasWork) {
+            /*
             this.log?.info("Attaching content to CSS file ...");
-
             const filename = path.join(event.outputDirectory, "assets/style.css");
 
-            let data =
+            const data =
                 fs.readFileSync(filename, "utf8") +
-                "\n.tsd-hierarchy-diagram .diagram { max-width: 100%; display: block; margin: 0 auto; text-align: center; }\n";
-
-            if (this.shouldGenerateLegends) {
-                data += DiagramLegend.getCss();
-            }
+"\n.tsd-hierarchy-diagram .diagram { max-width: 100%; display: block; margin: 0 auto; text-align: center; }\n";
 
             fs.writeFileSync(filename, data, "utf8");
-
+*/
             this.log?.info("DONE");
 
             if (this.isGeneratingImages && this.plantUmlDiagramGenerator) {

@@ -8,5 +8,17 @@
         "exactOptionalPropertyTypes": true,
         "target": "es2015"
     },
-    "include": ["src"]
+    "include": ["src"],
+    "typedocOptions": {
+        "entryPoints": [
+            "./src"
+        ],
+        "out": "docs"
+    },
+    "exclude": [
+        "docs",
+        "dist",
+        "coverage",
+        "node_modules"
+    ]
 }
