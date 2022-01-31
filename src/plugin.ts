@@ -371,6 +371,10 @@ export class Plugin {
         const filename = `${reflection.name}-umlClassDiagram-${reflection.id}.${this.options.format}`;
         const absoluteFilePath = path.join(this.outputDirectory, filename);
 
+        if (!fs.existsSync(this.outputDirectory)) {
+            fs.mkdirSync(this.outputDirectory);
+        }
+
         fs.writeFileSync(absoluteFilePath, imageData as Buffer);
         return absoluteFilePath;
     }
@@ -384,6 +388,9 @@ export class Plugin {
         const filename = `${reflection.name}-umlClassDiagram-${reflection.id}.puml`;
         const absoluteFilePath = path.join(this.outputDirectory, filename);
 
+        if (!fs.existsSync(this.outputDirectory)) {
+            fs.mkdirSync(this.outputDirectory);
+        }
         fs.writeFileSync(absoluteFilePath, plantUml, "utf8");
     }
 
