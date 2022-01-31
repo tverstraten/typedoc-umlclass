@@ -115,55 +115,43 @@ export class DiagramLegend {
 
         //![Jest Coverage](badges/coverage-jest%20coverage.svg)
         if (this.hasClassIcon) {
-            legend += `![icon for a class in the UML class diagram](data:image/svg+xml;base64,${Image.ClassCircledChar})
-            #### class`;
+            legend += `\n![icon for a class in the UML class diagram](data:image/svg+xml;base64,${Image.ClassCircledChar})\n#### class`;
         }
         if (this.hasAbstractClassIcon) {
-            legend += `![icon for an abstract class in the UML class diagram](data:image/svg+xml;base64,${Image.AbstractClassCircledChar})
-            #### abstract class`;
+            legend += `\n![icon for an abstract class in the UML class diagram](data:image/svg+xml;base64,${Image.AbstractClassCircledChar})\n#### abstract class`;
         }
         if (this.hasInterfaceIcon) {
-            legend += `![icon for an interface in the UML class diagram](data:image/svg+xml;base64,${Image.InterfaceCircledChar})
-            #### interface`;
+            legend += `\n![icon for an interface in the UML class diagram](data:image/svg+xml;base64,${Image.InterfaceCircledChar})\n#### interface`;
         }
 
         if (memberVisbilityStyle === "icon") {
             if (this.hasPublicPropertyItem) {
-                legend += `![icon for a public property in the UML class diagram](data:image/svg+xml;base64,${Image.PublicProperty})
-                #### public property`;
+                legend += `\n![icon for a public property in the UML class diagram](data:image/svg+xml;base64,${Image.PublicProperty})\n#### public property`;
             }
             if (this.hasProtectedPropertyItem) {
-                legend += `![icon for a protected property in the UML class diagram](data:image/svg+xml;base64,${Image.ProtectedProperty})
-                #### protected property`;
+                legend += `\n![icon for a protected property in the UML class diagram](data:image/svg+xml;base64,${Image.ProtectedProperty})\n#### protected property`;
             }
             if (this.hasPrivatePropertyItem) {
-                legend += `![icon for a private property in the UML class diagram](data:image/svg+xml;base64,${Image.PrivateProperty})
-                #### private property>`;
+                legend += `\n![icon for a private property in the UML class diagram](data:image/svg+xml;base64,${Image.PrivateProperty})\n#### private property>`;
             }
             if (this.hasPublicMethodItem) {
-                legend += `![icon for a public method in the UML class diagram](data:image/svg+xml;base64,${Image.PublicMethod})
-                #### public method`;
+                legend += `\n![icon for a public method in the UML class diagram](data:image/svg+xml;base64,${Image.PublicMethod})\n#### public method`;
             }
             if (this.hasProtectedMethodItem) {
-                legend += `![icon for a protected method in the UML class diagram](data:image/svg+xml;base64,${Image.ProtectedMethod})
-                #### protected method`;
+                legend += `\n![icon for a protected method in the UML class diagram](data:image/svg+xml;base64,${Image.ProtectedMethod})\n#### protected method`;
             }
             if (this.hasPrivateMethodItem) {
-                legend += `![icon for a private method in the UML class diagram](data:image/svg+xml;base64,${Image.PrivateMethod})
-                #### private method`;
+                legend += `\n![icon for a private method in the UML class diagram](data:image/svg+xml;base64,${Image.PrivateMethod})\n#### private method`;
             }
         } else {
             if (this.hasPublicPropertyItem || this.hasPublicMethodItem) {
-                legend += `+
-                #### public property/method`;
+                legend += `+\n#### public property/method`;
             }
             if (this.hasProtectedPropertyItem || this.hasProtectedMethodItem) {
-                legend += `#
-                #### protected property/method`;
+                legend += `#\n#### protected property/method`;
             }
             if (this.hasPrivatePropertyItem || this.hasPrivateMethodItem) {
-                legend += `-
-                          #### private property/method`;
+                legend += `-\n#### private property/method`;
             }
         }
 

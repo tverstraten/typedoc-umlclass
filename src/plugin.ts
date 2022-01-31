@@ -346,6 +346,9 @@ export class Plugin {
             const absoluteImageFilePath = this.writeLocalImageFileForReflection(imageData, id.reflection);
 
             this.log?.info(`Creating local image URL for reflection ${id.reflection.name} ...`);
+            if (!fs.existsSync(this.outputDirectory)) {
+                fs.mkdirSync(this.outputDirectory);
+            }
             imageUrl = createLocalImageFileUrl(id.pageFilePath, absoluteImageFilePath);
         } else {
             this.log?.info(`Creating embedded image URL for reflection ${id.reflection.name} ...`);

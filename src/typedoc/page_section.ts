@@ -20,8 +20,5 @@ export function createHierarchyDiagramSection(
     legendMarkdown?: string,
 ): string {
     // URLs with data are not clickable in browsers for security concerns => just output an image tag
-    return `### ${title}
-                    ![UML class diagram of ${reflectionName}](${imageUrl})
-                    ${legendMarkdown ?? ""}
-                \n`;
+    return `### ${title}\n![UML class diagram of ${reflectionName}](${imageUrl})\n${legendMarkdown ?? ""}\n`;
 }
