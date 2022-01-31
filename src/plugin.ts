@@ -70,12 +70,7 @@ export class Plugin {
      * @returns True if the plugin is active, otherwise false.
      */
     public get isActive(): boolean {
-        if (!this.log) {
-            this.log = new Logger();
-        }
         const result = this.options.type === "simple" || this.options.type === "detailed";
-        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-        //this.log.info(`isActive type=${this.options.type} returns=${result}`);
         return result;
     }
 
@@ -84,12 +79,7 @@ export class Plugin {
      * @returns True if the plugin needs to generate diagrams, otherwise false.
      */
     public get hasWork(): boolean {
-        if (!this.log) {
-            this.log = new Logger();
-        }
         const result = this.numberOfDiagramsToGenerate > 0;
-        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-        //this.log.info(`hasWork returns=${result}`);
         return result;
     }
 
@@ -122,10 +112,6 @@ export class Plugin {
      * @param typedoc The TypeDoc application.
      */
     public initialize(typedoc: Application): void {
-        if (!this.log) {
-            this.log = new Logger();
-        }
-        this.log.info(`initialize app=${JSON.stringify(typedoc, CircularReplacer)}`);
         this.addOptionsToApplication(typedoc);
         this.subscribeToApplicationEvents(typedoc);
     }
@@ -172,7 +158,6 @@ export class Plugin {
             }
 
             this.log?.info("Caculating number of diagrams to generate ...");
-            this.log?.info(`context=${JSON.stringify(context, CircularReplacer)}`);
             this.numberOfDiagramsToGenerate = this.computeDiagramCount(context.project);
             this.log?.info("The result is: " + this.numberOfDiagramsToGenerate.toString());
 
@@ -209,15 +194,8 @@ export class Plugin {
     private computeDiagramCount(project: ProjectReflection): number {
         let count = 0;
 
-        this.log?.info(`computeDiagramCount project=${JSON.stringify(project, CircularReplacer)}`);
-
         for (const key in project.reflections) {
             const reflection = project.reflections[key];
-            /*
-            this.log?.info(
-                `computeDiagramCount checking ${key} reflection=${JSON.stringify(reflection, CircularReplacer)}`,
-            );
-            */
             if (this.shouldProcessReflection(reflection)) {
                 ++count;
             }
@@ -232,11 +210,6 @@ export class Plugin {
      * @param event The event emitted by the renderer class.
      */
     public onRendererBegin(event: RendererEvent): void {
-        if (!this.log) {
-            this.log = new Logger();
-        }
-        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-        this.log.info(`onRendererBegin active=${this.isActive} work=${this.hasWork}`);
         if (this.isActive && this.hasWork) {
             this.outputDirectory = path.join(event.outputDirectory, "assets/");
         }
@@ -473,16 +446,6 @@ export class Plugin {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     public onRendererEnd(event: RendererEvent): void {
         if (this.isActive && this.hasWork) {
-            /*
-            this.log?.info("Attaching content to CSS file ...");
-            const filename = path.join(event.outputDirectory, "assets/style.css");
-
-            const data =
-                fs.readFileSync(filename, "utf8") +
-"\n.tsd-hierarchy-diagram .diagram { max-width: 100%; display: block; margin: 0 auto; text-align: center; }\n";
-
-            fs.writeFileSync(filename, data, "utf8");
-*/
             this.log?.info("DONE");
 
             if (this.isGeneratingImages && this.plantUmlDiagramGenerator) {
