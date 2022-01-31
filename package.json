@@ -1,6 +1,6 @@
 {
     "name": "@tverstraten/typedoc-umlclass-mod",
-    "version": "0.1.1",
+    "version": "0.1.122",
     "description": "Plugin for TypeDoc Markdown that generates UML class diagrams",
     "author": "author",
     "license": "ISC",
@@ -38,7 +38,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/cwano12/typedoc-umlclass.git"
+        "url": "git+https://github.com/tverstraten/typedoc-umlclass.git"
     },
     "main": "dist/index.js",
     "files": [
@@ -49,7 +49,6 @@
         "format": "npx prettier --check ./src",
         "clean": "rimraf dist",
         "build": "npx tsc",
-        "clean-build": "npm run clean && npm run build",
-        "run": "typedoc"
+        "clean-build": "npm run clean && npm run build"
     }
 }

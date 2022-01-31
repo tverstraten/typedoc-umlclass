@@ -8,7 +8,8 @@ export class Logger {
      */
     // eslint-disable-next-line class-methods-use-this
     public info(message: string): void {
-        const intro = new Date().toLocaleString() + " [INFO] ";
+        //const intro = new Date().toLocaleString() + " [INFO] ";
+        const intro = "typedoc-uml [INFO] ";
         console.log(intro + message);
     }
 
