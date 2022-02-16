@@ -322,10 +322,10 @@ export class Plugin {
             if (!fs.existsSync(this.outputDirectory)) {
                 fs.mkdirSync(this.outputDirectory);
             }
-            imageUrl = createLocalImageFileUrl(id.pageFilePath, absoluteImageFilePath);
+            imageUrl = createLocalImageFileUrl(id.pageFilePath, absoluteImageFilePath).replace("\\", "/");
         } else {
             this.log?.info(`Creating embedded image URL for reflection ${id.reflection.name} ...`);
-            imageUrl = createEmbeddedImageUrl(imageData, this.options.format).replace("\\", "/");
+            imageUrl = createEmbeddedImageUrl(imageData, this.options.format);
         }
 
         this.log?.info(`Inserting diagram into page for reflection ${id.reflection.name} ...`);
