@@ -1,6 +1,6 @@
 {
     "name": "@tverstraten/typedoc-umlclass-mod",
-    "version": "0.1.128",
+    "version": "0.1.129",
     "description": "Plugin for TypeDoc Markdown that generates UML class diagrams",
     "author": "author",
     "license": "ISC",

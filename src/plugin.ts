@@ -325,7 +325,7 @@ export class Plugin {
             imageUrl = createLocalImageFileUrl(id.pageFilePath, absoluteImageFilePath);
         } else {
             this.log?.info(`Creating embedded image URL for reflection ${id.reflection.name} ...`);
-            imageUrl = createEmbeddedImageUrl(imageData, this.options.format);
+            imageUrl = createEmbeddedImageUrl(imageData, this.options.format).replace("\\", "/");
         }
 
         this.log?.info(`Inserting diagram into page for reflection ${id.reflection.name} ...`);
