@@ -9,7 +9,7 @@ import * as plantUmlEncoder from "plantuml-encoder";
  */
 export function createLocalImageFileUrl(pageFilePath: string, imageFilePath: string): string {
     const pageFileDir = path.dirname(pageFilePath);
-    return path.relative(pageFileDir, imageFilePath);
+    return path.relative(pageFileDir, imageFilePath).replace("\\", "/");
 }
 
 /**
